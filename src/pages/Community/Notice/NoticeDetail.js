@@ -1,15 +1,11 @@
 import React from "react";
 import styled from "styled-components";
-import PostDetail from "../../../components/Post/PostDetail";
+import Post from "../../../components/Post/Post";
 
 const NoticeDetail = (props) => {
   const { item } = props;
 
-  return (
-    <Wrapper>
-      <PostDetail item={item} />
-    </Wrapper>
-  );
+  return <Post item={item} />;
 };
 
 const Wrapper = styled.div``;

@@ -1,8 +1,10 @@
-import React from "react";
+import React, { useEffect } from "react";
 import styled from "styled-components";
 import { Comment, Avatar } from "antd";
 
 const Reply = (props) => {
+  const { item, children } = props;
+
   return (
     <Wrapper>
       <Comment

@@ -5,7 +5,7 @@ import { Select, Input } from "antd";
 const { Option } = Select;
 const { Search } = Input;
 
-const sampleOptions = [
+const defaultOptions = [
   {
     value: "title",
     text: "제목",
@@ -23,7 +23,7 @@ const sampleOptions = [
   },
 ];
 const SearchBar = (props) => {
-  const { options = sampleOptions, optionDefaultValue = "" } = props;
+  const { options = defaultOptions, optionDefaultValue = "" } = props;
 
   const [submitData, setSubmitData] = useState({
     category: "",
