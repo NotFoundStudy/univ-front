@@ -1,35 +1,36 @@
-import React, { useEffect } from 'react';
+import React, { useEffect } from "react";
 import styled from "styled-components";
 import { appCreators } from "../../redux/actionCreators";
 import { useRouteMatch } from "react-router-dom";
+import Viewer from "../../components/Editor/Viewer";
+import Editor from "../../components/Editor/Editor";
 
 const Honorship = (props) => {
-
   const match = useRouteMatch();
 
-  useEffect(()=>{
+  useEffect(() => {
     appCreators.updateState({
-      breadcrumbList:[
+      breadcrumbList: [
         {
-          to: '',
-          title: 'Introduction & Research'
+          to: "",
+          title: "Introduction & Research",
         },
         {
           to: `${match.path}`,
-          title: 'Introduction'
-        }
+          title: "Introduction",
+        },
       ],
-    })
-  },[])
+    });
+  }, []);
 
-    return (
-        <Wrapper>
-           Honorship
-        </Wrapper>
-    )
+  return (
+    <Wrapper>
+      <Editor />
+      <Viewer content={""} />
+    </Wrapper>
+  );
 };
 
-const Wrapper = styled.div`
-`;
+const Wrapper = styled.div``;
 
 export default Honorship;
