@@ -1,19 +1,11 @@
-import axios from 'axios'
-import {Auth} from './Auth'
+import { Auth } from "./Auth";
 
-const insert = async ({title, contents, userId, isSecret, password, token}) => {
-    const api = Auth.create(token);
-    const body = {
-        userId,
-        title,
-        contents,
-        isSecret,
-        password,
-    }
-    const res = await api.post('/create-board', body);
-    return res;
-}
+const createNotice = async ({ token, data }) => {
+  const authAPI = Auth.create(token);
+  console.log("@@ authAPI .post가 절로 있는지?", authAPI);
+  return await authAPI.post("/create-board", data);
+};
 
-export const editor = {
-    insert,
-}
+export const Api = {
+  createNotice,
+};
