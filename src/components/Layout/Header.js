@@ -4,10 +4,15 @@ import { Layout as AntdLayout } from "antd";
 import Images from "../../assets/image";
 import Menu from "../Menu/Menu";
 import COMMON_CONST from "../../assets/constant/common";
+import { navigate } from "../../helper/historyHelper";
+import Container from "./Container";
 
 const Header = (props) => {
   return (
     <StyledAntdHeader>
+      <LogoWrap onClick={() => navigate("/")}>
+        <img src={Images.headerLogo} alt="" />
+      </LogoWrap>
       <NavWrap>
         <StyledMenu mode={"horizontal"} list={COMMON_CONST.WHOLE_MENU} />
       </NavWrap>
@@ -17,11 +22,22 @@ const Header = (props) => {
 
 const StyledAntdHeader = styled(AntdLayout.Header)`
   position: relative;
+  z-index: 20;
   height: 210px;
   background-image: url(${Images.headerCover});
   background-position: 50% 50%;
   background-size: cover;
   background-repeat: no-repeat;
+`;
+
+const LogoWrap = styled.div`
+  display: inline-block;
+  padding-top: 27px;
+  padding-left: 130px;
+  cursor: pointer;
+  img {
+    height: 90px;
+  }
 `;
 
 const NavWrap = styled.div`
