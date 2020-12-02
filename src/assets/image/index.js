@@ -1,4 +1,5 @@
 import defaultUser from "./default-user.jpg";
+import defaultPhoto from "./default-photo.png";
 import headerCover from "./@header-cover.jpg";
 import homeCover from "./@home-cover.jpeg";
 import logoUniversity from "./logo_univ.png";
@@ -8,6 +9,7 @@ import mainMember from "./main-member.jpg";
 
 const Images = {
   defaultUser,
+  defaultPhoto,
   headerCover,
   homeCover,
   logoUniversity,

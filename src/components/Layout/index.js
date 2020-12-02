@@ -10,7 +10,19 @@ import Container from "./Container";
 import { useHistory, useRouteMatch } from "react-router-dom";
 
 const Layout = (props) => {
-  const { children, exceptLayout = false } = props;
+  const { children } = props;
+
+  const [exceptLayout, setExceptLayout] = useState(false);
+  // 랜더 될떄마다 useHistory 트리거 해줄만한 곳이 없음
+  const [history, setHistory] = useState(useHistory());
+
+  useEffect(() => {
+    history.location.pathname === "/"
+      ? setExceptLayout(true)
+      : setExceptLayout(false);
+
+    console.log("@@ history2", history);
+  }, [history]);
 
   // rwd breakpoint 3항 연산
 
@@ -34,7 +46,7 @@ const Layout = (props) => {
           padding: "60px 0",
         }}
       >
-        <Sider />
+        {!exceptLayout && <Sider />}
         <Content exceptLayout={exceptLayout}>{children}</Content>
       </AntdLayout>
       <Footer />

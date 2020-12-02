@@ -3,6 +3,44 @@ import styled from "styled-components";
 import Images from "../../assets/image";
 import { BsPlusSquare } from "react-icons/all";
 import { navigate } from "../../helper/historyHelper";
+import NoList from "../../components/NoData/NoList";
+
+const noticeList = [];
+// [
+//   {
+//     id: 1,
+//     title:
+//       "반도체 소재연구 분야 전문가반도체 소재연구 분야 전문가반도체 소재연구 분야 전문가반도체 소재연구 분야 전문가반도체 소재연구 분야 전문가반도체 소재연구 분야 전문가",
+//     modified_date: "20.10.20",
+//   },
+//   {
+//     id: 2,
+//     title:
+//       "반도체 소재연구 분야 전문가반도체 소재연구 분야 전문가반도체 소재연구 분야 전문가반도체 소재연구 분야 전문가반도체 소재연구 분야 전문가반도체 소재연구 분야 전문가",
+//     modified_date: "20.10.20",
+//   },
+//   {
+//     id: 3,
+//     title: "반도체 소재연구",
+//     modified_date: "20.10.20",
+//   },
+
+//   {
+//     id: 4,
+//     title: "반도체 소재연구",
+//     modified_date: "20.10.20",
+//   },
+// ];
+
+const galleryItem = null;
+// {
+//   id: 1,
+//   thumb:
+//     "data:image/png;base64,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",
+//   title:
+//     "반도체 소재연구 분야 전문가반도체 소재연구 분야 전문가반도체 소전문가반도체 소재연구 분야 전문가반도체 소전문가반도체 소재연구 분야 전문가반도체 소전문가반도체 소재연구 분야 전문가반도체 소전문가반도체 소재연구 분야 전문가반도체 소재연구 분야 전문가반도체 소재연구 분야 전문가반도체 소재연구 분야 전문가반도체 소재연구 분야 전문가",
+//   modified_date: "20.10.20",
+// };
 
 const Home = (props) => {
   return (
@@ -20,31 +58,24 @@ const Home = (props) => {
                 onClick={() => navigate("/community/notice")}
               />
             </div>
-            <div className="row">
-              <div className="title">
-                반도체 소재연구 분야 전문가’, 이진균 고분 소재연구 분야 전문가’,
-                이진균 고분 소재연구 분야 전문가’, 이진균 고분 소재연구 분야
-                전문가’, 이진균 고분 소재연구 분야 전문가’, 이진균 고분
-              </div>
-              <div className="date">20.10.20</div>
-            </div>
-            <div className="row">
-              <div className="title">
-                ‘반도체 소재연구 분야 전문가’, 이진균 고분…
-              </div>
-              <div className="date">20.10.20</div>
-            </div>
-            <div className="row">
-              <div className="title">
-                ‘반도체 소재연구 분야 전문가’, 이진균 고분…
-              </div>
-              <div className="date">20.10.20</div>
-            </div>
-            <div className="row">
-              <div className="title">
-                ‘반도체 소재연구 분야 전문가’, 이진균 고분…
-              </div>
-              <div className="date">20.10.20</div>
+            <div className="inner-wrap">
+              {noticeList.length > 0 ? (
+                noticeList.map((item) => (
+                  <div
+                    className="row"
+                    key={item.id}
+                    onClick={() => navigate(`/community/notice/${item.id}`)}
+                  >
+                    <div className="title">{item.title}</div>
+                    <div className="date">{item.modified_date}</div>
+                  </div>
+                ))
+              ) : (
+                <NoList
+                  style={{ paddingTop: "34px" }}
+                  description={"등록된 공지사항이 없습니다"}
+                />
+              )}
             </div>
           </div>
         </div>
@@ -52,13 +83,31 @@ const Home = (props) => {
           <div className="board">
             <div className="name">
               <span>Gallery</span>
-              <BsPlusSquare />
+              <BsPlusSquare
+                style={{ cursor: "pointer" }}
+                onClick={() => navigate("/community/gallery")}
+              />
             </div>
-            <div className="row">
-              <div className="thumb">
-                <img src="" alt="" />
-              </div>
-              <div className="desc"></div>
+            <div className="inner-wrap">
+              {galleryItem ? (
+                <div
+                  className="row for-gallery"
+                  onClick={() =>
+                    navigate(`/community/gallery/${galleryItem.id}`)
+                  }
+                >
+                  <Thumb src={galleryItem.thumb} />
+                  <div className="desc">
+                    <div className="g-title">{galleryItem.title}</div>
+                    <div className="date">{galleryItem.modified_date}</div>
+                  </div>
+                </div>
+              ) : (
+                <NoList
+                  description={"등록된 포토가 없습니다"}
+                  style={{ paddingTop: "34px" }}
+                />
+              )}
             </div>
           </div>
         </div>
@@ -106,14 +155,17 @@ const Wrapper = styled.div`
       padding: 0 15px;
     }
     .board {
-      min-height: 251px;
       box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
       background: #fff;
+      .inner-wrap {
+        min-height: 220px;
+        padding: 7px 0 15px;
+      }
       .name {
         display: flex;
         justify-content: space-between;
         align-items: center;
-        padding: 12px 17px 9px 20px;
+        padding: 14px 17px 9px 20px;
         border-bottom: 2px solid #999;
         font-size: 21px;
         font-weight: 500;
@@ -123,10 +175,10 @@ const Wrapper = styled.div`
         display: flex;
         justify-content: space-between;
         align-items: center;
+        margin: 0 13px;
         padding: 15px 12px 11px 13px;
-        & + .row {
-          border-top: 1px solid #ddd;
-        }
+        border-bottom: 1px solid #f1f1f1;
+        cursor: pointer;
         .title {
           white-space: nowrap;
           overflow: hidden;
@@ -139,12 +191,19 @@ const Wrapper = styled.div`
           font-size: 12px;
           opacity: 0.7;
         }
-        .thumb {
-          img {
-            height: 100px;
+        &.for-gallery {
+          border-bottom: none;
+          .g-title {
+            overflow: hidden;
+            opacity: 0.8;
           }
-        }
-        .desc {
+          .desc {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            width: calc(100% - 290px);
+            height: 170px;
+          }
         }
       }
     }
@@ -153,6 +212,15 @@ const Wrapper = styled.div`
       margin-right: -15px;
     }
   }
+`;
+
+const Thumb = styled.div`
+  width: 270px;
+  height: 170px;
+  background-image: url(${(props) => props.src || Images.defaultPhoto});
+  background-position: 50% 50%;
+  background-size: cover;
+  background-repeat: no-repeat;
 `;
 
 const Link = styled.div`
@@ -187,7 +255,7 @@ const Link = styled.div`
     color: #fff;
   }
   &:hover {
-    background-size: 130%;
+    background-size: 110%;
   }
 `;
 

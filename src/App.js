@@ -1,39 +1,27 @@
 import React, { useEffect, useState } from "react";
-import styled from "styled-components";
-import { Switch, Route, Redirect, useHistory } from "react-router-dom";
 import { useSelector } from "react-redux";
-import Auth from "./hoc/auth";
-import Page404 from "./pages/Error/Page404";
-import { appCreators } from "./redux/actionCreators";
-import ToastMessage from "./components/ToastMessage/ToastMessage";
-import Home from "./pages/Home/Home";
-import Login from "./pages/Login/Login";
-import Introduction from "./pages/Introduction";
-import Professor from "./pages/Professor";
-import Member from "./pages/Member";
-import Publication from "./pages/Publication";
-import Lecture from "./pages/Lecture";
-import Community from "./pages/Community";
+import { Redirect, Route, Switch } from "react-router-dom";
+import styled from "styled-components";
 import Layout from "./components/Layout";
+import ToastMessage from "./components/ToastMessage/ToastMessage";
+import Community from "./pages/Community";
+import Page404 from "./pages/Error/Page404";
+import Home from "./pages/Home/Home";
+import Introduction from "./pages/Introduction";
+import Lecture from "./pages/Lecture";
+import Member from "./pages/Member";
+import Professor from "./pages/Professor";
+import Publication from "./pages/Publication";
 
 const App = (props) => {
   const { toastMessage } = useSelector((state) => state.app);
   const { isLoggedIn } = useSelector((state) => state.user);
 
-  const history = useHistory();
-  const [exceptLayout, setExceptLayout] = useState();
-
-  useEffect(() => {
-    history.location.pathname === "/"
-      ? setExceptLayout(true)
-      : setExceptLayout(false);
-  }, [history]);
-
   return (
     <Wrapper>
       {toastMessage && <ToastMessage message={toastMessage} />}
 
-      <Layout exceptLayout={exceptLayout}>
+      <Layout>
         <Switch>
           <Route exact path={"/"} component={Home} />
 
