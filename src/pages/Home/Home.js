@@ -64,18 +64,21 @@ const Home = (props) => {
         </div>
       </section>
       <section className="link-wrap">
-        <div
-          className="link"
+        <Link
+          src={Images.mainResearch}
+          text={"Research"}
           onClick={() => navigate("/introduction/research")}
-        >
-          <div className="img"></div>
-        </div>
-        <div className="link" onClick={() => navigate("/publication")}>
-          <div className="img"></div>
-        </div>
-        <div className="link" onClick={() => navigate("/member/current")}>
-          <div className="img"></div>
-        </div>
+        />
+        <Link
+          src={Images.mainPublications}
+          text={"publications"}
+          onClick={() => navigate("/publication")}
+        />
+        <Link
+          src={Images.mainMember}
+          text={"Member"}
+          onClick={() => navigate("/member/current")}
+        />
       </section>
     </Wrapper>
   );
@@ -149,19 +152,42 @@ const Wrapper = styled.div`
       margin-left: -15px;
       margin-right: -15px;
     }
-    .link {
-      width: 33.33%;
-      padding: 0 15px;
-      .img {
-        height: 150px;
-        background-image: url(${(props) => props.src});
-        background-position: 50% 50%;
-        background-size: cover;
-        background-repeat: no-repeat;
-        background: pink;
-        cursor: pointer;
-      }
-    }
+  }
+`;
+
+const Link = styled.div`
+  position: relative;
+  width: 33.33%;
+  margin: 0 15px;
+  height: 150px;
+  background-image: url(${(props) => props.src});
+  background-position: 50% 50%;
+  background-size: 100%;
+  background-repeat: no-repeat;
+  transition: background-size 0.2s ease-in-out;
+  cursor: pointer;
+  &:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 1;
+    background: rgba(0, 0, 0, 0.4);
+  }
+  &:after {
+    content: "${(props) => props.text}";
+    position: absolute;
+    z-index: 2;
+    right: 20px;
+    bottom: 7px;
+    font-size: 30px;
+    font-weight: 600;
+    color: #fff;
+  }
+  &:hover {
+    background-size: 130%;
   }
 `;
 
