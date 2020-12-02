@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import styled, { css } from "styled-components";
 import { Layout as AntdLayout } from "antd";
 import Header from "./Header";
@@ -7,9 +7,10 @@ import Footer from "./Footer";
 import Content from "./Content";
 import Breadcrumb from "../Breadcrumb/Breadcrumb";
 import Container from "./Container";
+import { useHistory, useRouteMatch } from "react-router-dom";
 
 const Layout = (props) => {
-  const { children } = props;
+  const { children, exceptLayout = false } = props;
 
   // rwd breakpoint 3항 연산
 
@@ -23,9 +24,7 @@ const Layout = (props) => {
           ...row,
         }}
       >
-        <Container>
-          <Breadcrumb />
-        </Container>
+        <Container>{!exceptLayout && <Breadcrumb />}</Container>
       </AntdLayout>
       <AntdLayout
         style={{
@@ -36,7 +35,7 @@ const Layout = (props) => {
         }}
       >
         <Sider />
-        <Content>{children}</Content>
+        <Content exceptLayout={exceptLayout}>{children}</Content>
       </AntdLayout>
       <Footer />
     </AntdLayoutWrapper>
