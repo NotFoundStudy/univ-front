@@ -82,19 +82,25 @@ const LinkItem = styled.a`
   margin-left: 10px;
   padding-left: 10px;
   border-left: 1px solid #b5b5b5;
+  font-size: 0.9rem;
+  color: #444;
   &:first-child {
     margin-left: 0;
     padding-left: 0;
     border-left: none;
   }
-  font-size: 0.8rem;
-  color: #444444;
 `;
+
 const SelectWrap = styled.div`
   display: flex;
   align-items: center;
+  .ant-select-selection-item {
+    line-height: 32px;
+  }
 `;
+
 const DemoUi = styled.div`
+  height: 32px;
   margin-left: 4px;
   padding: 6px 9px;
   border-radius: 3px;
@@ -108,7 +114,7 @@ const Text = styled.div`
   p {
     margin: 0;
     line-height: 1.7;
-    font-size: 0.75rem;
+    font-size: 0.86rem;
     color: #868686;
     &.light {
       color: #b7b7b7;
@@ -131,6 +137,7 @@ const Bottom = styled.div`
     }
   }
 `;
+
 const Logo = styled.a`
   height: 47px;
   cursor: pointer;

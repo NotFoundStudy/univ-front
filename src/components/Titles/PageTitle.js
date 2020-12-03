@@ -25,7 +25,7 @@ const Title = styled.div`
   border-radius: 3px;
   border-bottom: 4px solid #2b2b2b;
   text-transform: capitalize;
-  font-size: 32px;
+  font-size: 2.13rem;
   font-weight: 700;
   color: #2b2b2b;
   /* color: ${(props) => props.color || "#fff"}; */

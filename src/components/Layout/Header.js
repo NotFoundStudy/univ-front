@@ -59,7 +59,7 @@ const StyledMenu = styled(Menu)`
   .ant-menu-item-only-child {
     flex-grow: 1;
     text-align: center;
-    font-size: 19px;
+    font-size: 1.26rem;
     color: #fff;
     .ant-menu-item {
       // dropdown
@@ -67,7 +67,7 @@ const StyledMenu = styled(Menu)`
       padding: 5px 0;
       text-align: center;
       line-height: 44px;
-      font-size: 17px;
+      font-size: 1.13rem;
     }
   }
 `;

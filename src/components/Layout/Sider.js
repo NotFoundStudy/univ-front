@@ -85,7 +85,7 @@ const Wrapper = styled(AntdLayout.Sider)`
     padding-bottom: 0 !important;
     height: 55px !important;
     line-height: 55px !important;
-    font-size: 16px;
+    font-size: 1rem;
     font-weight: 400;
     color: #484848;
     &:hover {
@@ -107,7 +107,7 @@ const Head = styled.div`
   background: #094c90;
   text-transform: capitalize;
   text-align: center;
-  font-size: 22px;
+  font-size: 1.46rem;
   font-weight: 600;
   color: #fff;
 `;

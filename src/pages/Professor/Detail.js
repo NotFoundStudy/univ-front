@@ -217,11 +217,13 @@ const Head = styled(HalfWrap)`
     flex-direction: column;
     h1 {
       margin-bottom: 10px;
-      font-size: 18px;
-      font-weight: 500;
+      font-size: 1.6rem;
+      font-weight: 600;
     }
     p {
       margin-bottom: 0;
+      font-size: 1rem;
+      font-weight: 400;
       & + & {
         margin-top: 5px;
       }

@@ -153,6 +153,16 @@ const Wrapper = styled.div`
       flex: 0 0 50%; // 이거와 maxWidth 같이줘야 50% 채워짐
       max-width: 50%;
       padding: 0 15px;
+      &:nth-child(1) {
+        .name {
+          border-bottom-color: #8bca98;
+        }
+      }
+      &:nth-child(2) {
+        .name {
+          border-bottom-color: #23b6ff;
+        }
+      }
     }
     .board {
       box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
@@ -166,8 +176,9 @@ const Wrapper = styled.div`
         justify-content: space-between;
         align-items: center;
         padding: 14px 17px 9px 20px;
-        border-bottom: 2px solid #999;
-        font-size: 21px;
+        border-bottom-width: 2px;
+        border-bottom-style: solid;
+        font-size: 1.4rem;
         font-weight: 500;
         color: #525252;
       }
@@ -184,11 +195,11 @@ const Wrapper = styled.div`
           overflow: hidden;
           text-overflow: ellipsis;
           padding-right: 60px;
-          font-size: 14px;
+          font-size: 0.9rem;
         }
         .date {
           flex-shrink: 0;
-          font-size: 12px;
+          font-size: 0.8rem;
           opacity: 0.7;
         }
         &.for-gallery {
@@ -250,7 +261,7 @@ const Link = styled.div`
     z-index: 2;
     right: 20px;
     bottom: 7px;
-    font-size: 30px;
+    font-size: 1.9rem;
     font-weight: 600;
     color: #fff;
   }
