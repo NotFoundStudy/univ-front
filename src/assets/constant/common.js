@@ -128,6 +128,11 @@ const COMMON_CONST = {
       ],
     },
   ],
+  USER_ROLE: {
+    admin: 0,
+    professor: 1,
+    user: 2,
+  },
 };
 
 export default COMMON_CONST;
