@@ -15,6 +15,16 @@ import {
   FcIdea,
   FcLibrary,
 } from "react-icons/all";
+import RoleControl from "../../components/RoleControls/RoleControl";
+
+// textarea 저장 시 줄바꿈을 <br>로 치환 => $('#text').val().replace(/\n/g, "<br>"
+// textarea로 값 받아올 때 텍스트로 출력되는 <br>을 줄바꿈으로 치환 => text.replaceAll("<br>", "\r\n");
+
+const professorInfo = {
+  name: "Hong Gil Dong",
+  desc:
+    "Assistant Professor/Ph.D.<br/>Department of Polymer Science and Engineering<br/>Pusan National University<br/>Tel) +82-51-510-2467<br/>E-mail) dgseong@pusan.ac.kr",
+};
 
 const Detail = (props) => {
   const match = useRouteMatch();
@@ -37,20 +47,10 @@ const Detail = (props) => {
   return (
     <Wrapper>
       <PageTitle title="Professor" />
-      외주측에서 순서, 항목, 항목텍스트 받기
       {/* userType === 1 */}
-      {true && (
-        <RightWrap gutter={4} style={{ paddingBottom: "20px" }}>
-          <Button type="primary">Edit</Button>
-          <Button>Del</Button>
-        </RightWrap>
-      )}
+      <RoleControl />
       <Head>
-        <img
-          className="thumb"
-          src="https://lh3.googleusercontent.com/proxy/EDVitibQ-ot7aaSRnuzeBZa8yCkSLd0cp8ZmMlpEMUYhf24BwuE92gGn5QPTTd4Xmpp2pVFMOqw2pgkmspG-aCZ5y1J6Yj5bWqRYqZpS4hm1GaMRQnIstia8-1nvDwx93JbKphrV_IkInt8r"
-          alt=""
-        />
+        {/* 작성 textarea로, view 스타일링은 이 파일에서 일괄 */}
         <div className="desc">
           <h1>Hong Gil Dong</h1>
           <p>Assistant Professor/Ph.D.</p>
@@ -60,14 +60,16 @@ const Detail = (props) => {
           <p>E-mail) dgseong@pusan.ac.kr</p>
         </div>
 
-        {/* <LeftWrap className="left-wrap">
-        </LeftWrap>
-        <RightWrap className="right-wrap">
-         
-        </RightWrap> */}
+        <img
+          className="thumb"
+          src="https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
+          alt=""
+        />
       </Head>
+      <hr />
       <Content>
-        {/* 1 */}
+        {/* Write를 어떻게 할지 생각, description 안에 작성해도 되는데 갯수가 다 다를거라서 +/- 버튼 필요햠  */}
+        {/* 이것도 textarea로 하는게 좋을듯... 다른 사이트처럼, 쉽고 빠르게 처리하자 */}
         <Descriptions
           bordered
           title={
@@ -200,13 +202,20 @@ const Detail = (props) => {
   );
 };
 
-const Wrapper = styled.div``;
+const Wrapper = styled.div`
+  hr {
+    margin: 50px 0;
+    border: 1px solid #f1f1f1;
+  }
+`;
+
 const Head = styled(HalfWrap)`
-  justify-content: center;
-  border-radius: 3px;
-  background: #f0f0f0;
+  justify-content: space-between;
+  padding: 20px 20px;
+  border-radius: 5px;
   .thumb {
-    height: 215px;
+    width: 180px;
+    height: 230px;
     margin-right: 20px;
     padding: 10px;
     border: 1px solid #adadad;
@@ -217,7 +226,7 @@ const Head = styled(HalfWrap)`
     flex-direction: column;
     h1 {
       margin-bottom: 10px;
-      font-size: 1.6rem;
+      font-size: 1.8rem;
       font-weight: 600;
     }
     p {
