@@ -83,22 +83,10 @@ const COMMON_CONST = {
       subMenu: [
         {
           icon: '',
-          title: 'A',
-          key: '/lecture/A',
+          title: 'list',
+          key: '/lecture',
           subMenu: []
-        },
-        {
-          icon: '',
-          title: 'B',
-          key: '/lecture/B',
-          subMenu: []
-        },
-        {
-          icon: '',
-          title: 'C',
-          key: '/lecture/C',
-          subMenu: []
-        },
+        }
       ]
     },
     //6
