@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
-
 import { Table, Tag, Space } from 'antd';
+
+import ModalPDF from "../Modal/PDF";
+
 const { Column, ColumnGroup } = Table;
 
 const config = {
@@ -40,7 +42,7 @@ const LectureTable = ({data}) => {
         key="action"
         render={(text, record) => (
           <Space size="middle">
-            <a href={record.pdfUrl}>PDF {record.lastName}</a>
+            {record.pdfUrl && <ModalPDF title={"PDF"} PDFurl={record.pdfUrl}/>}
             <a>Delete</a>
           </Space>
         )}
