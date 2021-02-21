@@ -5,7 +5,6 @@ import styled from "styled-components";
 
 const PDF = ({title, PDFurl}) => {
   const [visible, setVisible] = useState(false);
-  console.log(PDFurl)
   return (
     <>
       <Button type="primary" onClick={() => setVisible(true)}>
