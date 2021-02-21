@@ -9,66 +9,77 @@ const { Meta } = Card;
 
 const demo = [
   {
+    profile: "https://img.pngio.com/kakaotalk-kakao-friends-south-korea-kakaofriends-png-download-kakaotalk-png-900_640.jpg",
     id: 1,
     name: '남승철',
     major: '컴퓨터공학',
     description: '설명',
   },
   {
+    profile: "https://img.pngio.com/kakaotalk-kakao-friends-south-korea-kakaofriends-png-download-kakaotalk-png-900_640.jpg",
     id: 2,
     name: '남승철',
     major: '컴퓨터공학',
     description: '컴퓨터 공학 전공 조교',
   },
   {
+    profile: "https://img.pngio.com/kakaotalk-kakao-friends-south-korea-kakaofriends-png-download-kakaotalk-png-900_640.jpg",
     id: 3,
     name: '남승철',
     major: '컴퓨터공학',
     description: '설명',
   },
   {
+    profile: "https://img.pngio.com/kakaotalk-kakao-friends-south-korea-kakaofriends-png-download-kakaotalk-png-900_640.jpg",
     id: 4,
     name: '남승철',
     major: '컴퓨터공학',
     description: '설명',
   },
   {
+    profile: "https://img.pngio.com/kakaotalk-kakao-friends-south-korea-kakaofriends-png-download-kakaotalk-png-900_640.jpg",
     id: 5,
     name: '남승철',
     major: '컴퓨터공학',
     description: '설명',
   },
   {
+    profile: "https://img.pngio.com/kakaotalk-kakao-friends-south-korea-kakaofriends-png-download-kakaotalk-png-900_640.jpg",
     id: 6,
     name: '남승철',
     major: '컴퓨터공학',
     description: '설명',
   },
   {
+    profile: "https://img.pngio.com/kakaotalk-kakao-friends-south-korea-kakaofriends-png-download-kakaotalk-png-900_640.jpg",
     id: 6,
     name: '남승철',
     major: '컴퓨터공학',
     description: '설명',
   },
   {
+    profile: "https://img.pngio.com/kakaotalk-kakao-friends-south-korea-kakaofriends-png-download-kakaotalk-png-900_640.jpg",
     id: 6,
     name: '남승철',
     major: '컴퓨터공학',
     description: '설명',
   },
   {
+    profile: "https://img.pngio.com/kakaotalk-kakao-friends-south-korea-kakaofriends-png-download-kakaotalk-png-900_640.jpg",
     id: 6,
     name: '남승철',
     major: '컴퓨터공학',
     description: '설명',
   },
   {
+    profile: "https://img.pngio.com/kakaotalk-kakao-friends-south-korea-kakaofriends-png-download-kakaotalk-png-900_640.jpg",
     id: 6,
     name: '남승철',
     major: '컴퓨터공학',
     description: '설명',
   },
   {
+    profile: "https://img.pngio.com/kakaotalk-kakao-friends-south-korea-kakaofriends-png-download-kakaotalk-png-900_640.jpg",
     id: 6,
     name: '남승철',
     major: '컴퓨터공학',
@@ -104,7 +115,7 @@ const Alumni = (props) => {
               <Avatar
                 className="profile-img"
                 size={{ xs: 24, sm: 32, md: 40, lg: 64, xl: 80, xxl: 100 }}
-                icon={<AntDesignOutlined />}
+                src={el.profile}
               />
             }
           >
