@@ -9,7 +9,7 @@ export const mock = {
                 date: '2014-12-24',
                 title: 'New York No. 1 Lake Park',
                 tags: ['nice', 'developer'],
-                pdfUrl: "http://naver.com"
+                pdfUrl: "/images/default/sample.pdf"
             },
             {
                 key: '2',
