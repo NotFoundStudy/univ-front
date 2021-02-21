@@ -1,0 +1,11 @@
+.ant-card {
+    margin-right: 1rem !important;
+    margin-bottom: 1rem !important;
+    padding: 1rem !important;
+    & > .ant-card-cover {
+        padding: 24px;
+        & > span {
+            margin: 0 auto;
+        }
+    }
+}   
