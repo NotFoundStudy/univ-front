@@ -10,28 +10,19 @@ function Lecture({PDFurl}) {
   const [numPages, setNumPages] = useState(null);
   const [pageNumber, setPageNumber] = useState(1);
 
+  //numPages === maximum page, pageNumber === current page
   const next = () => {
-    setPageNumber(pageNumber => {
-      if(pageNumber + 1 >= numPages){
-        return numPages
-      }
-      return pageNumber + 1
-    })
+    setPageNumber(pageNumber => (pageNumber + 1) >= numPages ? numPages : pageNumber + 1)
   }
   const prev = () => {
-    setPageNumber(pageNumber => {
-      if(pageNumber - 1 <= 0) {
-        return 1
-      }
-      return pageNumber - 1
-    })
+    setPageNumber(pageNumber => (pageNumber - 1) <= 0 ? 1 : pageNumber - 1)
   }
 
   function onDocumentLoadSuccess({ numPages }) {
     setNumPages(numPages);
   }
 
-  // file 을 axios로 받아와서 넣어줘야 함, ~ file params
+  // 수정필, file 을 axios로 받아와서 넣어줘야 함, ~ file params
   return (
     <Wrapper>
       <Document
